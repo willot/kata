@@ -4,8 +4,10 @@ public class ConvertArabicNumeralToRoman {
 	private String romanNumeral;
 
 	public String convert(int arabicNumber) {
+		romanNumeral ="";
 		String romanNumericalFor5 = "V";
-		romanNumeral = "";
+		String romanNumericalFor10 = "X";
+		
 		int arabicNumberMinus5 = arabicNumber - 5;
 		
 		if(arabicNumber >0) {
@@ -24,11 +26,11 @@ public class ConvertArabicNumeralToRoman {
 			break;
 			
 			case 4:
-				romanNumeral += "IV";
+				romanNumeral = "IV";
 			break;
 			
 			case 5:
-				romanNumeral += "V";
+				romanNumeral = "V";
 			break;
 			
 			case 6:
@@ -42,6 +44,14 @@ public class ConvertArabicNumeralToRoman {
 			case 8:
 				romanNumeral=addTheRightNumberOfI(arabicNumberMinus5, romanNumericalFor5);
 			break;
+			
+			case 9:
+				romanNumeral= "I" +romanNumericalFor10;
+				break;
+				
+			case 10:
+				romanNumeral=romanNumericalFor10;
+				break;
 		
 			default:
 				break;

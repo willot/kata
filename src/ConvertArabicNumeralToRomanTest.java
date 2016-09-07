@@ -17,6 +17,8 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		ConvertArabicNumeralToRoman converter = new ConvertArabicNumeralToRoman();
 		assertEquals("V", converter.convert(5));
 		assertEquals("VII", converter.convert(7));
+		assertEquals("IX", converter.convert(9));
+		assertEquals("X", converter.convert(10));
 	}
 
 }

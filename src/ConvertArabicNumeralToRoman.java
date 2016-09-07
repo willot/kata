@@ -1,9 +1,15 @@
 
 public class ConvertArabicNumeralToRoman {
 
-	public String convert() {
+	public String convert(int arabicNumber) {
+		String romanNumeral = "";
 		
-		return "I";
+		while (arabicNumber>0) {
+			arabicNumber --;
+			romanNumeral += "I";
+					}
+		
+		return romanNumeral;
 	}
 
 }

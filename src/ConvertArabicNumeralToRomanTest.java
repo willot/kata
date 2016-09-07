@@ -9,6 +9,7 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		
 		assertEquals("I", converter.convert(1));
 		assertEquals("II", converter.convert(2));
+		assertEquals("III", converter.convert(3));
 		assertEquals(errorMessage, converter.convert(-4));
 	}
 	

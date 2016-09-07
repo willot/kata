@@ -1,8 +1,12 @@
 
 public class ConvertArabicNumeralToRoman {
 
+	private String romanNumeral;
+
 	public String convert(int arabicNumber) {
-		String romanNumeral = "";
+		String romanNumericalFor5 = "V";
+		romanNumeral = "";
+		int arabicNumberMinus5 = arabicNumber - 5;
 		
 		if(arabicNumber >0) {
 		
@@ -12,17 +16,13 @@ public class ConvertArabicNumeralToRoman {
 			break;
 		
 			case 2:
-				while (arabicNumber>0) {
-				arabicNumber --;
-				romanNumeral += "I";
-						}
+				romanNumeral= addTheRightNumberOfI(arabicNumber, romanNumeral);
 			break;
+			
 			case 3:
-				while (arabicNumber>0) {
-				arabicNumber --;
-				romanNumeral += "I";
-						}
+				romanNumeral= addTheRightNumberOfI(arabicNumber, romanNumeral);
 			break;
+			
 			case 4:
 				romanNumeral += "IV";
 			break;
@@ -32,30 +32,15 @@ public class ConvertArabicNumeralToRoman {
 			break;
 			
 			case 6:
-				romanNumeral = "V";
-				arabicNumber = arabicNumber -5;
-				while (arabicNumber >0) {
-					arabicNumber --;
-					romanNumeral += "I";
-							}
+				romanNumeral= addTheRightNumberOfI(arabicNumberMinus5, romanNumericalFor5);
 			break;
 			
 			case 7:
-				romanNumeral = "V";
-				arabicNumber = arabicNumber -5;
-				while (arabicNumber >0) {
-					arabicNumber --;
-					romanNumeral += "I";
-							}
+				romanNumeral= addTheRightNumberOfI(arabicNumberMinus5, romanNumericalFor5);
 			break;
 			
 			case 8:
-				romanNumeral = "V";
-				arabicNumber = arabicNumber -5;
-				while (arabicNumber >0) {
-					arabicNumber --;
-					romanNumeral += "I";
-							}
+				romanNumeral=addTheRightNumberOfI(arabicNumberMinus5, romanNumericalFor5);
 			break;
 		
 			default:
@@ -66,6 +51,15 @@ public class ConvertArabicNumeralToRoman {
 		}
 		
 		return "We only accept positive number";
+	}
+	
+	 public String addTheRightNumberOfI (int arabicNumber, String romanNumeral) {
+		while (arabicNumber >0) {
+			arabicNumber --;
+			romanNumeral += "I";
+					}
+		return romanNumeral;
+
 	}
 
 }

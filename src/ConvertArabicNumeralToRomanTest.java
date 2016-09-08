@@ -21,4 +21,16 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		assertEquals("X", converter.convert(10));
 	}
 
+	
+	public void testConversionbetween11And100() {
+		ConvertArabicNumeralToRoman converter = new ConvertArabicNumeralToRoman();
+		assertEquals("XI", converter.convert(11));
+		assertEquals("XVII", converter.convert(17));
+		assertEquals("XXIX", converter.convert(29));
+		assertEquals("XLII", converter.convert(42));
+		assertEquals("LI", converter.convert(51));
+		assertEquals("LXIII", converter.convert(63));
+		assertEquals("LXXXIV", converter.convert(84));
+		assertEquals("XCVI", converter.convert(96));
+	}
 }

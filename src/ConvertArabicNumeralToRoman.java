@@ -2,32 +2,77 @@
 public class ConvertArabicNumeralToRoman {
 
 	private String romanNumeral;
+	private String romanNumericalFor1 = "I";
+	private String romanNumericalFor5 = "V";
+	private String romanNumericalFor10 = "X";
+	private String romanNumericalFor50 = "L";
+	private String romanNumericalFor100 = "C";
 
 	public String convert(int arabicNumber) {
 		romanNumeral ="";
-		String romanNumericalFor5 = "V";
-		String romanNumericalFor10 = "X";
+		
+		
 		
 		int arabicNumberMinus5 = arabicNumber - 5;
 		
 		if (arabicNumber>10) {
 			int firstDigitValue = arabicNumber/10;
+			int firstDigitValueMinus5 = arabicNumber/10-5;
 			int secondDigitValue = arabicNumber%10;
 			int secondDigitValueMinus5 = secondDigitValue -5;
+			
+			String romanNumeralValueForFirstDigit ="";
 			
 			
 			switch (firstDigitValue) {
 			case 1: case 2: case 3:
-				String romanNumeral2 ="";
 				
-				romanNumeral2 = addTheRightNumberOfX(firstDigitValue, romanNumeral2);
+				
+				romanNumeralValueForFirstDigit = addTheRightNumberOfX(firstDigitValue, romanNumeralValueForFirstDigit);
 				
 				convertLastDigitIntoRomanNumeral(secondDigitValue, romanNumericalFor5,
 						romanNumericalFor10, secondDigitValueMinus5);
-				System.out.println(romanNumeral);
-				romanNumeral = romanNumeral2 + romanNumeral;
+				romanNumeral = romanNumeralValueForFirstDigit + romanNumeral;
 				return romanNumeral;
+				
+			case 4: 
 			
+				romanNumeralValueForFirstDigit = romanNumericalFor10 + romanNumericalFor50;
+				
+				convertLastDigitIntoRomanNumeral(secondDigitValue, romanNumericalFor5,
+						romanNumericalFor10, secondDigitValueMinus5);
+				romanNumeral = romanNumeralValueForFirstDigit + romanNumeral;
+				return romanNumeral;
+				
+				
+			case 5: 
+			
+				romanNumeralValueForFirstDigit = romanNumericalFor50;
+				
+				convertLastDigitIntoRomanNumeral(secondDigitValue, romanNumericalFor5,
+						romanNumericalFor10, secondDigitValueMinus5);
+				romanNumeral = romanNumeralValueForFirstDigit + romanNumeral;
+				return romanNumeral;
+				
+				case 6: case 7: case 8:
+				
+				romanNumeralValueForFirstDigit = addTheRightNumberOfX(firstDigitValueMinus5, romanNumericalFor50);
+				
+				convertLastDigitIntoRomanNumeral(secondDigitValue, romanNumericalFor5,
+						romanNumericalFor10, secondDigitValueMinus5);
+						
+				romanNumeral = romanNumeralValueForFirstDigit + romanNumeral;
+				return romanNumeral;
+				
+			case 9:
+					
+				romanNumeralValueForFirstDigit = romanNumericalFor10 + romanNumericalFor100;
+				
+				convertLastDigitIntoRomanNumeral(secondDigitValue, romanNumericalFor5,
+						romanNumericalFor10, secondDigitValueMinus5);
+						
+				romanNumeral = romanNumeralValueForFirstDigit + romanNumeral;
+				return romanNumeral;
 			}
 			
 			
@@ -67,7 +112,7 @@ public class ConvertArabicNumeralToRoman {
 		break;
 		
 		case 5:
-			romanNumeral = "V";
+			romanNumeral = romanNumericalFor5;
 		break;
 		
 		case 6:
@@ -83,7 +128,7 @@ public class ConvertArabicNumeralToRoman {
 		break;
 		
 		case 9:
-			romanNumeral= "I" +romanNumericalFor10;
+			romanNumeral= romanNumericalFor1 + romanNumericalFor10;
 			break;
 			
 		case 10:

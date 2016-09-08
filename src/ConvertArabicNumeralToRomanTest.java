@@ -27,10 +27,13 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		assertEquals("XI", converter.convert(11));
 		assertEquals("XVII", converter.convert(17));
 		assertEquals("XXIX", converter.convert(29));
+		assertEquals("XXX", converter.convert(30));
 		assertEquals("XLII", converter.convert(42));
 		assertEquals("LI", converter.convert(51));
 		assertEquals("LXIII", converter.convert(63));
+		assertEquals("LXXV", converter.convert(75));
 		assertEquals("LXXXIV", converter.convert(84));
 		assertEquals("XCVI", converter.convert(96));
+		assertEquals("XCIX", converter.convert(99));
 	}
 }

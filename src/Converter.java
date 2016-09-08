@@ -50,4 +50,13 @@ public class Converter {
 		 return romanNumeral;
 	 }
 
+
+
+	public int convertRomanNumeralIntoArabicNumber(String romanNumber) {
+		int arabicNumber;
+		arabicNumber =1;
+	
+		return arabicNumber;
+	}
+
 }

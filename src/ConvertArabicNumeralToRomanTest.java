@@ -80,4 +80,12 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		assertEquals("MMMCMXCIX", converter.convertArabicNumberIntoRomanNumeral(3999));
 		
 	}
+	
+	public void testConversionOfBasicRomanNumeralIntoArabicNumbers() {
+		Converter converter = new Converter();
+		
+		assertEquals(1, converter.convertRomanNumeralIntoArabicNumber("I"));
+		
+		
+	}	
 }

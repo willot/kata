@@ -59,7 +59,7 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		ConvertArabicNumeralToRoman converter = new ConvertArabicNumeralToRoman();
 		assertEquals("V", converter.convertVersion2(5));
 		assertEquals("X", converter.convertVersion2(10));
-		assertEquals("C", converter.convertVersion2(50));
+		assertEquals("L", converter.convertVersion2(50));
 		
 	}
 	

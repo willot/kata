@@ -145,28 +145,21 @@ public class ConvertArabicNumeralToRoman {
 	 
 	 
 	 public String convertVersion2(int arabicNumber) {
+		 
+		 String[] romanNumberReference= {"C","L","X","V","I"};
+		 Integer[] arabicNumberReferences= {100,50,10,5,1};
 
-		 
-		 HashMap< Integer, String> pairValueOfArabicAndRomanNumber = new HashMap< Integer , String >();
-		 pairValueOfArabicAndRomanNumber.put(100, "C");
-		 pairValueOfArabicAndRomanNumber.put(50, "L");
-		 pairValueOfArabicAndRomanNumber.put(10, "X");
-		 pairValueOfArabicAndRomanNumber.put(5, "V");
-		 pairValueOfArabicAndRomanNumber.put(1, "I");
-		 System.out.println(pairValueOfArabicAndRomanNumber);
-		 
-		 for(HashMap.Entry<Integer, String> pair: pairValueOfArabicAndRomanNumber.entrySet()) {
-			 System.out.println(pair.getKey());
-			int remainingOfArabicNumber = pair.getKey()/arabicNumber;
-			
-			 if(remainingOfArabicNumber == 0 ) {
-				 romanNumeral = pair.getValue();
-				 return romanNumeral;
-			 }
-			 
-		 }
-			
 		
+			 for (int index = 0; index < arabicNumberReferences.length; index++) {
+				 int remainingOfArabicNumber = arabicNumberReferences[index]/arabicNumber;
+				 System.out.println(remainingOfArabicNumber);
+					
+				 if(remainingOfArabicNumber == 1 ) {
+					 romanNumeral = romanNumberReference[index];
+					 return romanNumeral;
+			}
+		 		 
+		 }
 		 
 		 return romanNumeral;
 	 }

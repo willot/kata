@@ -35,5 +35,32 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		assertEquals("LXXXIV", converter.convert(84));
 		assertEquals("XCVI", converter.convert(96));
 		assertEquals("XCIX", converter.convert(99));
+		
+		
 	}
+	
+	
+//	public void testConversionbetween100And1000() {
+//		ConvertArabicNumeralToRoman converter = new ConvertArabicNumeralToRoman();
+//		assertEquals("CI", converter.convert(101));
+//		assertEquals("CLXX", converter.convert(170));
+//		assertEquals("CCXXIV", converter.convert(224));
+//		assertEquals("CCCXXXIX", converter.convert(339));
+//		assertEquals("CDXL", converter.convert(440));
+//		assertEquals("DLXXXIX", converter.convert(589));
+//		assertEquals("DCXCIV", converter.convert(694));
+//		assertEquals("DCCXIII", converter.convert(713));
+//		assertEquals("DCCCXCV", converter.convert(895));
+//		assertEquals("CMXVI", converter.convert(916));
+//		assertEquals("XCIX", converter.convert(999));
+//	}
+	
+	public void testBetterConversion() {
+		ConvertArabicNumeralToRoman converter = new ConvertArabicNumeralToRoman();
+		assertEquals("V", converter.convertVersion2(5));
+		assertEquals("X", converter.convertVersion2(10));
+		assertEquals("C", converter.convertVersion2(50));
+		
+	}
+	
 }

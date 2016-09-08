@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
 
 public class ConvertArabicNumeralToRoman {
 
@@ -137,5 +141,34 @@ public class ConvertArabicNumeralToRoman {
 			return romanNumeral;
 
 		}
+	 
+	 
+	 
+	 public String convertVersion2(int arabicNumber) {
+
+		 
+		 HashMap< Integer, String> pairValueOfArabicAndRomanNumber = new HashMap< Integer , String >();
+		 pairValueOfArabicAndRomanNumber.put(100, "C");
+		 pairValueOfArabicAndRomanNumber.put(50, "L");
+		 pairValueOfArabicAndRomanNumber.put(10, "X");
+		 pairValueOfArabicAndRomanNumber.put(5, "V");
+		 pairValueOfArabicAndRomanNumber.put(1, "I");
+		 System.out.println(pairValueOfArabicAndRomanNumber);
+		 
+		 for(HashMap.Entry<Integer, String> pair: pairValueOfArabicAndRomanNumber.entrySet()) {
+			 System.out.println(pair.getKey());
+			int remainingOfArabicNumber = pair.getKey()/arabicNumber;
+			
+			 if(remainingOfArabicNumber == 0 ) {
+				 romanNumeral = pair.getValue();
+				 return romanNumeral;
+			 }
+			 
+		 }
+			
+		
+		 
+		 return romanNumeral;
+	 }
 
 }

@@ -3,14 +3,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 
-public class ConvertArabicNumeralToRoman {
+public class Converter {
 
 	private String romanNumeral ="";
 	private String[] romanNumberReference= {"M","CM" ,"D","CD","C","XC","L","XL","X","IX","V","IV","I"};
 	private Integer[] arabicNumberReferences= {1000,900,500,400,100,90,50,40,10,9,5,4,1};
 	
+	
 	 
-	 public String convert(int arabicNumber) {
+	 public String convertArabicNumberIntoRomanNumeral(int arabicNumber) {
 		 romanNumeral ="";
 		 int remainingOfArabicNumber = arabicNumber;
 	 

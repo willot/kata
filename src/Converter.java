@@ -40,10 +40,6 @@ public class Converter {
 						 remainingOfArabicNumber = remainingOfArabicNumber - arabicNumberReferences[index];
 					 }
 				 }
-				 
-				 if (remainingOfArabicNumber <= 0) {
-					 return romanNumeral;
-				 }
 
 		 }
 		 return romanNumeral;

@@ -23,19 +23,20 @@ public class Converter {
 		 }
 
 		for (int index = 0; index < arabicNumberReferences.length; index++) {
-				 				 
-				 int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberReferences[index];
-					
-				 if(arabicNumber == arabicNumberReferences[index] ) {
-					 romanNumeral = romanNumberReference[index];
-					 return romanNumeral;
-				 }
+			int arabicNumberFromArabicNumberReferences	= 	arabicNumberReferences[index];			
+			
+				if(arabicNumber == arabicNumberFromArabicNumberReferences ) {
+					romanNumeral = romanNumberReference[index];
+					return romanNumeral;
+				}
+				
+				 int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberFromArabicNumberReferences;
 				 
 				 if (quotientOfArabicNumber>0) {
 					 while (quotientOfArabicNumber >0) {
 						 quotientOfArabicNumber --;
 						 romanNumeral += romanNumberReference[index];
-						 remainingOfArabicNumber = remainingOfArabicNumber - arabicNumberReferences[index];
+						 remainingOfArabicNumber = remainingOfArabicNumber - arabicNumberFromArabicNumberReferences;
 					 }
 				 }
 
@@ -63,10 +64,10 @@ public class Converter {
 					}
 					
 					else {
-						String[] arrayConteningIndex0and1OfSliptRomanNumeral = {splitRomanNumeral[0] + splitRomanNumeral[1]};
+						String[] arrayContainingIndex0and1OfSplitRomanNumeral = {splitRomanNumeral[0] + splitRomanNumeral[1]};
 						
-						if(romanToArabicValue.get(arrayConteningIndex0and1OfSliptRomanNumeral[0]) != null) {
-							arabicNumber += romanToArabicValue.get(arrayConteningIndex0and1OfSliptRomanNumeral[0]);
+						if(romanToArabicValue.get(arrayContainingIndex0and1OfSplitRomanNumeral[0]) != null) {
+							arabicNumber += romanToArabicValue.get(arrayContainingIndex0and1OfSplitRomanNumeral[0]);
 							splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral, 2);
 						}
 						

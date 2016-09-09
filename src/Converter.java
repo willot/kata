@@ -9,8 +9,8 @@ public class Converter {
 
 	private String romanNumeral ="";
 	private String[] romanNumberReference= {"M","CM" ,"D","CD","C","XC","L","XL","X","IX","V","IV","I"};
-//	private String[] romanNumberReference= {"V","I"};
 	private Integer[] arabicNumberReferences= {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+	private HashMap<String, Integer> romanToArabicValue;
 	
 	
 	 
@@ -47,7 +47,6 @@ public class Converter {
 				 if (remainingOfArabicNumber <= 0) {
 					 return romanNumeral;
 				 }
-				 
 
 		 }
 		 return romanNumeral;
@@ -57,8 +56,55 @@ public class Converter {
 
 	public int convertRomanNumeralIntoArabicNumber(String romanNumber) {
 		int arabicNumber = 0;
+		String[] splitRomanNumeral = fillRomanToArabicValueHash(romanNumber);
+		
+		while (splitRomanNumeral.length >0) {
+			
+					if( splitRomanNumeral.length == 1 ) {
+						arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
+						return arabicNumber;
+					}
+					
+					else if (splitRomanNumeral[0].equals("I") || splitRomanNumeral[0].equals("X") || splitRomanNumeral[0].equals("C")) {
+						String followingRomanNumeral = splitRomanNumeral[1];
+						
+						if (romanToArabicValue.get(followingRomanNumeral) > romanToArabicValue.get(splitRomanNumeral[0])) {
+							 arabicNumber += romanToArabicValue.get(followingRomanNumeral) - romanToArabicValue.get(splitRomanNumeral[0]) ;
+							 if(splitRomanNumeral.length < 3) {
+								 return arabicNumber;
+							 }
+							 else {
+								 splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral, 2);
+							 }
+						}
+						else {
+							arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
+							splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral, 1);
+						}
+					}
+					
+					else {
+						arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
+						splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral, 1);
+					}
+					
+				}
+		return arabicNumber;
+
+	}
+
+
+
+	private String[] createNewArrayOfSmallerSize(String[] arrayBeingModified, int startingRangeForNewArray) {
+		arrayBeingModified = Arrays.copyOfRange(arrayBeingModified,startingRangeForNewArray,arrayBeingModified.length);
+		return arrayBeingModified;
+	}
+
+
+
+	private String[] fillRomanToArabicValueHash(String romanNumber) {
 		String[] splitRomanNumeral = romanNumber.split("");
-		HashMap<String, Integer> romanToArabicValue = new HashMap<String, Integer>();
+		romanToArabicValue = new HashMap<String, Integer>();
 		romanToArabicValue.put("M",1000);
 		romanToArabicValue.put("D",500);
 		romanToArabicValue.put("C",100);
@@ -66,50 +112,7 @@ public class Converter {
 		romanToArabicValue.put("X",10);
 		romanToArabicValue.put("V",5);
 		romanToArabicValue.put("I",1);
-		
-
-		
-		while (splitRomanNumeral.length >0) {
-			
-			for (Entry<String, Integer> entry : romanToArabicValue.entrySet()) {
-				if(entry.getKey().equals(splitRomanNumeral[0])) {
-					
-					if( splitRomanNumeral.length == 1 ) {
-						arabicNumber += entry.getValue();
-						return arabicNumber;
-						
-					}
-					
-					if(splitRomanNumeral[0].equals("I") || splitRomanNumeral[0].equals("X") || splitRomanNumeral[0].equals("C")) {
-						String temp = splitRomanNumeral[1];
-						
-						
-						if (romanToArabicValue.get(temp) > entry.getValue()) {
-							 arabicNumber += romanToArabicValue.get(temp) - entry.getValue() ;
-							 if(splitRomanNumeral.length < 3) {
-								 return arabicNumber;
-							 }
-							 else {
-								 
-								 splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,2,splitRomanNumeral.length);
-							 }
-						}
-						else {
-							arabicNumber += entry.getValue();
-							splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,1,splitRomanNumeral.length);
-						}
-					}
-					else {
-						arabicNumber += entry.getValue();
-						splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,1,splitRomanNumeral.length);
-					}
-					
-				}
-				
-			}
-		}
-		return arabicNumber;
-
+		return splitRomanNumeral;
 	}
 		
 		

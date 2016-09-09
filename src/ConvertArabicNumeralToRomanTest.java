@@ -81,20 +81,20 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		
 	}
 	
-//	public void testConversionOfBasicRomanNumeralIntoArabicNumbers() {
-//		Converter converter = new Converter();
-//		
-//		assertEquals(1, converter.convertRomanNumeralIntoArabicNumber("I"));
-//		assertEquals(2, converter.convertRomanNumeralIntoArabicNumber("II"));
-//		assertEquals(3, converter.convertRomanNumeralIntoArabicNumber("III"));
-//		assertEquals(5, converter.convertRomanNumeralIntoArabicNumber("V"));
-//		assertEquals(6, converter.convertRomanNumeralIntoArabicNumber("VI"));
-//		assertEquals(7, converter.convertRomanNumeralIntoArabicNumber("VII"));
-//		assertEquals(8, converter.convertRomanNumeralIntoArabicNumber("VIII"));
-//		assertEquals(10, converter.convertRomanNumeralIntoArabicNumber("X"));
-//		
-//		
-//	}	
+	public void testConversionOfBasicRomanNumeralIntoArabicNumbers() {
+		Converter converter = new Converter();
+		
+		assertEquals(1, converter.convertRomanNumeralIntoArabicNumber("I"));
+		assertEquals(2, converter.convertRomanNumeralIntoArabicNumber("II"));
+		assertEquals(3, converter.convertRomanNumeralIntoArabicNumber("III"));
+		assertEquals(5, converter.convertRomanNumeralIntoArabicNumber("V"));
+		assertEquals(6, converter.convertRomanNumeralIntoArabicNumber("VI"));
+		assertEquals(7, converter.convertRomanNumeralIntoArabicNumber("VII"));
+		assertEquals(8, converter.convertRomanNumeralIntoArabicNumber("VIII"));
+		assertEquals(10, converter.convertRomanNumeralIntoArabicNumber("X"));
+		
+		
+	}	
 	
 	public void testConversionOfcomplexRomanNumeralIntoArabicNumbers() {
 		Converter converter = new Converter();

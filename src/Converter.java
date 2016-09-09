@@ -76,23 +76,17 @@ public class Converter {
 						
 						else {arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
 						splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral, 1);
-							
 						}
-						
 					}
+					
 				}
 		return arabicNumber;
-
 	}
-
-
 
 	private String[] createNewArrayOfSmallerSize(String[] arrayBeingModified, int startingRangeForNewArray) {
 		arrayBeingModified = Arrays.copyOfRange(arrayBeingModified,startingRangeForNewArray,arrayBeingModified.length);
 		return arrayBeingModified;
 	}
-
-
 
 	private void fillRomanToArabicValueHash() {
 		romanToArabicValue = new HashMap<String, Integer>();

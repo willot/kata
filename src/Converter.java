@@ -65,29 +65,20 @@ public class Converter {
 						return arabicNumber;
 					}
 					
-					else if (splitRomanNumeral[0].equals("I") || splitRomanNumeral[0].equals("X") || splitRomanNumeral[0].equals("C")) {
-						String followingRomanNumeral = splitRomanNumeral[1];
-						
-						if (romanToArabicValue.get(followingRomanNumeral) > romanToArabicValue.get(splitRomanNumeral[0])) {
-							 arabicNumber += romanToArabicValue.get(followingRomanNumeral) - romanToArabicValue.get(splitRomanNumeral[0]) ;
-							 if(splitRomanNumeral.length < 3) {
-								 return arabicNumber;
-							 }
-							 else {
-								 splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral, 2);
-							 }
-						}
-						else {
-							arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
-							splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral, 1);
-						}
-					}
-					
 					else {
-						arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
+						String[] arrayConteningIndex0and1OfSliptRomanNumeral = {splitRomanNumeral[0] + splitRomanNumeral[1]};
+						
+						if(romanToArabicValue.get(arrayConteningIndex0and1OfSliptRomanNumeral[0]) != null) {
+							arabicNumber += romanToArabicValue.get(arrayConteningIndex0and1OfSliptRomanNumeral[0]);
+							splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral, 2);
+						}
+						
+						else {arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
 						splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral, 1);
+							
+						}
+						
 					}
-					
 				}
 		return arabicNumber;
 
@@ -112,6 +103,12 @@ public class Converter {
 		romanToArabicValue.put("X",10);
 		romanToArabicValue.put("V",5);
 		romanToArabicValue.put("I",1);
+		romanToArabicValue.put("IV",4);
+		romanToArabicValue.put("IX",9);
+		romanToArabicValue.put("XL",40);
+		romanToArabicValue.put("XC",90);
+		romanToArabicValue.put("CD",400);
+		romanToArabicValue.put("CM",900);
 		return splitRomanNumeral;
 	}
 		

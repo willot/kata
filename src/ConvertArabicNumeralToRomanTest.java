@@ -105,8 +105,10 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		assertEquals(19, converter.convertRomanNumeralIntoArabicNumber("XIX"));
 		assertEquals(24, converter.convertRomanNumeralIntoArabicNumber("XXIV"));
 		assertEquals(29, converter.convertRomanNumeralIntoArabicNumber("XXIX"));
+		assertEquals(92, converter.convertRomanNumeralIntoArabicNumber("XCII"));
 		assertEquals(249, converter.convertRomanNumeralIntoArabicNumber("CCXLIX"));
 		assertEquals(1159, converter.convertRomanNumeralIntoArabicNumber("MCLIX"));
+		assertEquals(1949, converter.convertRomanNumeralIntoArabicNumber("MCMXLIX"));
 		assertEquals(2444, converter.convertRomanNumeralIntoArabicNumber("MMCDXLIV"));
 		
 		

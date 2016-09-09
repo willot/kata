@@ -81,7 +81,7 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		
 	}
 	
-	public void testConversionOfBasicRomanNumeralIntoArabicNumbers() {
+	public void testConversionOfBasicRomanNumeralIntoArabicNumbers() throws NotRomanException {
 		Converter converter = new Converter();
 		
 		assertEquals(1, converter.convertRomanNumeralIntoArabicNumber("I"));
@@ -96,7 +96,7 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		
 	}	
 	
-	public void testConversionOfcomplexRomanNumeralIntoArabicNumbers() {
+	public void testConversionOfcomplexRomanNumeralIntoArabicNumbers() throws NotRomanException {
 		Converter converter = new Converter();
 		
 		assertEquals(4, converter.convertRomanNumeralIntoArabicNumber("IV"));
@@ -110,8 +110,19 @@ public class ConvertArabicNumeralToRomanTest extends TestCase {
 		assertEquals(1159, converter.convertRomanNumeralIntoArabicNumber("MCLIX"));
 		assertEquals(1949, converter.convertRomanNumeralIntoArabicNumber("MCMXLIX"));
 		assertEquals(2444, converter.convertRomanNumeralIntoArabicNumber("MMCDXLIV"));
-		
-		
+		assertEquals(3999, converter.convertRomanNumeralIntoArabicNumber("MMMCMXCIX"));
 		
 	}
+	
+	public void testThrowExceptionWhenConvertRomanNumeralIntoArabicNumberIsGivenANonRomanNumber(){
+		Converter converter = new Converter();
+		
+		try {
+			converter.convertRomanNumeralIntoArabicNumber("GHJ");
+		} catch (NotRomanException e) {
+			String message = "This is not a Roman numeral";
+			assertEquals(message, e.getMessage());
+
+		}
+	}	
 }

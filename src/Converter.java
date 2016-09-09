@@ -54,13 +54,20 @@ public class Converter {
 
 
 
-	public int convertRomanNumeralIntoArabicNumber(String romanNumber) {
+	public int convertRomanNumeralIntoArabicNumber(String romanNumber) throws NotRomanException {
 		int arabicNumber = 0;
 		fillRomanToArabicValueHash();
 		String[] splitRomanNumeral = romanNumber.split("");
 		
+		
+		for (int index = 0; index < splitRomanNumeral.length; index++) {
+			if (romanToArabicValue.get(splitRomanNumeral[index]) == null) {
+				throw new NotRomanException("This is not a Roman numeral");
+							}
+		}
+		
 		while (splitRomanNumeral.length >0) {
-			
+					
 					if( splitRomanNumeral.length == 1 ) {
 						arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
 						return arabicNumber;
@@ -82,6 +89,14 @@ public class Converter {
 				}
 		return arabicNumber;
 	}
+
+	private String errormessage() {
+		String errorMessage = "Not a Roman Numeral";
+		return errorMessage;
+		
+	}
+
+
 
 	private String[] createNewArrayOfSmallerSize(String[] arrayBeingModified, int startingRangeForNewArray) {
 		arrayBeingModified = Arrays.copyOfRange(arrayBeingModified,startingRangeForNewArray,arrayBeingModified.length);

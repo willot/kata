@@ -8,8 +8,6 @@ public class Converter {
 	private String[] romanNumberReference= {"M","CM" ,"D","CD","C","XC","L","XL","X","IX","V","IV","I"};
 	private Integer[] arabicNumberReferences= {1000,900,500,400,100,90,50,40,10,9,5,4,1};
 	private HashMap<String, Integer> romanToArabicValue;
-	
-	
 	 
 	 public String convertArabicNumberIntoRomanNumeral(int arabicNumber) {
 		 romanNumeral ="";
@@ -44,8 +42,6 @@ public class Converter {
 		 }
 		 return romanNumeral;
 	 }
-
-
 
 	public int convertRomanNumeralIntoArabicNumber(String romanNumber) throws NotRomanException {
 		int arabicNumber = 0;
@@ -83,14 +79,6 @@ public class Converter {
 		return arabicNumber;
 	}
 
-	private String errormessage() {
-		String errorMessage = "Not a Roman Numeral";
-		return errorMessage;
-		
-	}
-
-
-
 	private String[] createNewArrayOfSmallerSize(String[] arrayBeingModified, int startingRangeForNewArray) {
 		arrayBeingModified = Arrays.copyOfRange(arrayBeingModified,startingRangeForNewArray,arrayBeingModified.length);
 		return arrayBeingModified;
@@ -112,9 +100,5 @@ public class Converter {
 		romanToArabicValue.put("CD",400);
 		romanToArabicValue.put("CM",900);
 	}
-		
-		
-		
-
 
 }

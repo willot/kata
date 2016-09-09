@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map.Entry;
 
 
 public class Converter {
@@ -55,29 +56,64 @@ public class Converter {
 
 
 	public int convertRomanNumeralIntoArabicNumber(String romanNumber) {
-		int arabicNumber;
+		int arabicNumber = 0;
 		String[] splitRomanNumeral = romanNumber.split("");
-		arabicNumber =0;
+		HashMap<String, Integer> romanToArabicValue = new HashMap<String, Integer>();
+		romanToArabicValue.put("M",1000);
+		romanToArabicValue.put("D",500);
+		romanToArabicValue.put("C",100);
+		romanToArabicValue.put("L",50);
+		romanToArabicValue.put("X",10);
+		romanToArabicValue.put("V",5);
+		romanToArabicValue.put("I",1);
 		
-		while(splitRomanNumeral.length >0)
-		for (int indexRomanReference = 0; indexRomanReference < romanNumberReference.length; indexRomanReference++) {
-							System.out.println("REF " + romanNumberReference[indexRomanReference]);
-				System.out.println("string " + splitRomanNumeral[0]);
-							
-				if(romanNumberReference[indexRomanReference].equals(splitRomanNumeral[0] )) {
-					arabicNumber +=arabicNumberReferences[indexRomanReference];
-					splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,1,splitRomanNumeral.length);
-					System.out.println("Arabic number: "+ arabicNumber);
-					System.out.println("lenghtofarray: "+ splitRomanNumeral.length);
-			}
+
+		
+		while (splitRomanNumeral.length >0) {
 			
-				if(splitRomanNumeral.length == 0) {
-					return arabicNumber;
+			for (Entry<String, Integer> entry : romanToArabicValue.entrySet()) {
+				if(entry.getKey().equals(splitRomanNumeral[0])) {
+					
+					if( splitRomanNumeral.length == 1 ) {
+						arabicNumber += entry.getValue();
+						return arabicNumber;
+						
+					}
+					
+					if(splitRomanNumeral[0].equals("I") || splitRomanNumeral[0].equals("X") || splitRomanNumeral[0].equals("C")) {
+						String temp = splitRomanNumeral[1];
+						
+						
+						if (romanToArabicValue.get(temp) > entry.getValue()) {
+							 arabicNumber += romanToArabicValue.get(temp) - entry.getValue() ;
+							 if(splitRomanNumeral.length < 3) {
+								 return arabicNumber;
+							 }
+							 else {
+								 
+								 splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,2,splitRomanNumeral.length);
+							 }
+						}
+						else {
+							arabicNumber += entry.getValue();
+							splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,1,splitRomanNumeral.length);
+						}
+					}
+					else {
+						arabicNumber += entry.getValue();
+						splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,1,splitRomanNumeral.length);
+					}
+					
 				}
-			
+				
+			}
 		}
-	
 		return arabicNumber;
+
 	}
+		
+		
+		
+
 
 }

@@ -56,7 +56,8 @@ public class Converter {
 
 	public int convertRomanNumeralIntoArabicNumber(String romanNumber) {
 		int arabicNumber = 0;
-		String[] splitRomanNumeral = fillRomanToArabicValueHash(romanNumber);
+		fillRomanToArabicValueHash();
+		String[] splitRomanNumeral = romanNumber.split("");
 		
 		while (splitRomanNumeral.length >0) {
 			
@@ -93,8 +94,7 @@ public class Converter {
 
 
 
-	private String[] fillRomanToArabicValueHash(String romanNumber) {
-		String[] splitRomanNumeral = romanNumber.split("");
+	private void fillRomanToArabicValueHash() {
 		romanToArabicValue = new HashMap<String, Integer>();
 		romanToArabicValue.put("M",1000);
 		romanToArabicValue.put("D",500);
@@ -109,7 +109,6 @@ public class Converter {
 		romanToArabicValue.put("XC",90);
 		romanToArabicValue.put("CD",400);
 		romanToArabicValue.put("CM",900);
-		return splitRomanNumeral;
 	}
 		
 		
